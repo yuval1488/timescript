@@ -1,12 +1,32 @@
+// ./src/date-formatter.ts
+
+/* eslint-disable */
+/* // List of all available parsing tokens
+-----------------------------------------
+Input   Example             Description
+-----------------------------------------
+YY	    01	                Two-digit year
+YYYY	  2001	              Four-digit year
+MM	    01-12	              Month, 2-digits
+MMM	    Jan-Dec	            The abbreviated month name
+D	      1-31	              Day of month
+DD	    01-31	              Day of month, 2-digits
+*/
+/* eslint-enable */
+
 export function formatDate (format: string, date: Date = new Date()): string {
+  // Validate format string for '-' delimiter
+  // if (!/^([A-Z]+-?)+$/i.test(format)) {
+  //   throw new Error("Format string is invalid. Only '-' delimiters are allowed.");
+  // }
   if (!/^(YY|YYYY|MMM|MM|DD|D)(-(YY|YYYY|MMM|MM|DD|D))*$/.test(format)) {
     throw new Error("Invalid format string. Use YY, YYYY, MMM, MM, DD, D seperated by '-'")
   }
 
-  // pad single digit numbers with a leading zero
-  const pad = (n: number) => n < 10 ? `0${n}` : `${n}`
+  // Define a helper to pad single digit numbers with a leading zero
+  const pad = (n: number): string => n < 10 ? `0${n}` : `${n}`
 
-  // month names
+  // Abbreviated month names
   const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
   // Replace format string with actual date parts
