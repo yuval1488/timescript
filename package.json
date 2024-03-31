@@ -8,7 +8,8 @@
     "build": "rimraf dist && tsc",
     "dev": "tsx watch ./src/index.ts",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "lint": "eslint ./src/**" 
   },
   "keywords": [],
   "author": "",
