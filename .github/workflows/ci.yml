@@ -5,7 +5,7 @@ name: Continuous Integration Workflow
 # Trigger this workflow whenever a new PR is created on the main branch
 on: 
     pull_request: 
-        branches: main
+        branches: master
 
 defaults:
     run:
